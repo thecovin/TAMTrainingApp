@@ -20,6 +20,12 @@ var ArticleSchema = new Schema({
     trim: true,
     required: 'Title cannot be blank'
   },
+  category: {
+    type: String,
+    default: '',
+    trim: true,
+    required: 'You must specify a category'
+  },
   content: {
     type: String,
     default: '',
