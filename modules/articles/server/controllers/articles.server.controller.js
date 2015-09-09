@@ -6,6 +6,7 @@
 var path = require('path'),
   mongoose = require('mongoose'),
   Article = mongoose.model('Article'),
+  //Cataogry = mongoose.model('Cataogry'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
@@ -41,6 +42,7 @@ exports.update = function (req, res) {
 
   article.title = req.body.title;
   article.content = req.body.content;
+  article.category = req.body.category;
 
   article.save(function (err) {
     if (err) {
