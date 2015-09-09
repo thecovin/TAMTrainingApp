@@ -28,6 +28,12 @@ var ArticleSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
+  },
+  category: {
+    type: String,
+    default: '',
+    trim: true,
+    required: 'Title cannot be blank'
   }
 });
 
