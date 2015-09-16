@@ -6,7 +6,9 @@
 var path = require('path'),
   mongoose = require('mongoose'),
   Article = mongoose.model('Article'),
-  //Cataogry = mongoose.model('Cataogry'),
+  Reference = mongoose.model('Reference'),
+
+  //Category = mongoose.model('Category'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
@@ -14,6 +16,7 @@ var path = require('path'),
  */
 exports.create = function (req, res) {
   var article = new Article(req.body);
+  article.reference = new Reference(req.body.reference);
   article.user = req.user;
 
   article.save(function (err) {
@@ -43,6 +46,7 @@ exports.update = function (req, res) {
   article.title = req.body.title;
   article.content = req.body.content;
   article.category = req.body.category;
+  article.reference = req.body.reference;
 
   article.save(function (err) {
     if (err) {
